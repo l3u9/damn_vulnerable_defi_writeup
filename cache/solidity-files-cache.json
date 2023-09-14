@@ -4859,6 +4859,52 @@
         "IUniswapV2Pair",
         "IWETH"
       ]
+    },
+    "/root/damn_vulnerable_defi_writeup/contracts/backdoor/BackdoorExploit.sol": {
+      "lastModificationDate": 1694667731741,
+      "contentHash": "c8d9e1d48ca759817272598e7825bdf9",
+      "sourceName": "contracts/backdoor/BackdoorExploit.sol",
+      "solcConfig": {
+        "version": "0.8.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "solady/src/auth/Ownable.sol",
+        "solady/src/utils/SafeTransferLib.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@gnosis.pm/safe-contracts/contracts/GnosisSafe.sol",
+        "@gnosis.pm/safe-contracts/contracts/proxies/IProxyCreationCallback.sol",
+        "./WalletRegistry.sol",
+        "@gnosis.pm/safe-contracts/contracts/proxies/GnosisSafeProxyFactory.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BackdoorExploit",
+        "DelegateCallContract"
+      ]
     }
   }
 }
