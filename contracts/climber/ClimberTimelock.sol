@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/Address.sol";
 import "./ClimberTimelockBase.sol";
+import "hardhat/console.sol";
 import {ADMIN_ROLE, PROPOSER_ROLE, MAX_TARGETS, MIN_TARGETS, MAX_DELAY} from "./ClimberConstants.sol";
 import {
     InvalidTargetsCount,
@@ -87,9 +88,12 @@ contract ClimberTimelock is ClimberTimelockBase {
 
         for (uint8 i = 0; i < targets.length;) {
             targets[i].functionCallWithValue(dataElements[i], values[i]);
+            console.log("i: ", i);
+
             unchecked {
                 ++i;
             }
+
         }
 
         if (getOperationState(id) != OperationState.ReadyForExecution) {
